@@ -23,5 +23,13 @@ public class StudentService {
     public Student saveStudent(Student student){
         return repository.save(student);
     }
+    
+    public Optional<Student> getStudentById(int id){
+        return repository.findById(id);
+    }
+
+    public void deleteStudent(int id){
+        repository.deleteById(id);
+    }
 
 }
