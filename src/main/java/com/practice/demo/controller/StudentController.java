@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 //Marks the java class as a Restfull web service controller
 //RestController is a combination of @Controller and Response body
@@ -49,4 +50,9 @@ public class StudentController {
         service.deleteStudent(id);
     }
 
+    @PutMapping("/{id}")
+    public Student updateStudent(@PathVariable int id, @RequestBody Student student){
+        student.setId(id);
+        return service.updateStudent(student);
+    }
 }

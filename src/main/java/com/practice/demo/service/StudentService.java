@@ -32,4 +32,17 @@ public class StudentService {
         repository.deleteById(id);
     }
 
+    public Student updateStudent(Student student){
+        Optional<Student> existing = repository.findById(student.getId());
+        if(existing.isPresent()){
+            Student update = existing.get();
+            update.setName(student.getName());
+            return repository.save(update);
+        }
+        else{
+            throw new RuntimeException("Student not found with id:"+student.getId());
+        }
+
+    }
+
 }
