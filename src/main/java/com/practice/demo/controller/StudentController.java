@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.practice.demo.entities.Student;
 import com.practice.demo.service.StudentService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +33,12 @@ public class StudentController {
 
     public StudentController(StudentService service){
         this.service=service;
+    }
+
+    @GetMapping("/csrf-token")
+    public CsrfToken getCsrfToken(HttpServletRequest request){
+        return (CsrfToken)request.getAttribute("_csrf");
+
     }
 
    @GetMapping

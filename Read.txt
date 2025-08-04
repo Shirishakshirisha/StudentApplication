@@ -1,0 +1,13 @@
+OWASP {Security Risks}
+Spring Security --- To secure our Web applications
+// U can set user name and password in applicaton.properties
+//If we have multiple controller classes do we need to login for each controller
+//Dispatcher servelet(Requests goes through)
+//Filter chain 
+//Request --> Filters --> Front controller --> Dispatcher Servelet --> controller
+//Security filters are Security context , user name and password , Face authentication filter,.....etc
+//
+// CSRF ---- 3rd party (protection)
+// HTTP is state less 
+//generate session id every u try to access
+//
